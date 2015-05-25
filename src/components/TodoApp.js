@@ -51,6 +51,15 @@ class TodoApp extends React.Component {
         Actions.toggleAll();
     }
 
+    removeAll(event) {
+        event.preventDefault();
+        Actions.removeAll();
+    }
+
+    removeArchived(event) {
+        event.preventDefault();
+        Actions.removeArchived();
+    }
 
 
     filteredTodos = () => {
@@ -119,14 +128,15 @@ class TodoApp extends React.Component {
                             <li role="presentation"
                                 className='pull-right'>
                                 <a className='remove-all'
-                                   onClick={Actions.removeAll}>Remove All</a>
+                                   href='#'
+                                   onClick={this.removeAll}>Remove All</a>
                             </li>
                             <li role="presentation"
                                 className='pull-right'>
                                 <a className='remove-archived'
                                    href='#'
-                                   onClick={Actions.removeArchived}>Remove
-                                                            Archived</a>
+                                   onClick={this.removeArchived}>Remove
+                                                                 Archived</a>
                             </li>
                         </ul>
 
