@@ -8,9 +8,11 @@ import TodoStore from 'stores/TodoStore';
 import TodoItem from 'components/TodoItem';
 import TodoForm from 'components/TodoForm';
 import debug from 'constants/DebugConstants';
+import 'normalize.css';
 import 'styles/TodoApp.scss';
 
 debug('Loading %s...', 'TodoApp');
+const ReactTransitionGroup = React.addons.TransitionGroup;
 
 
 class TodoApp extends React.Component {
@@ -74,39 +76,42 @@ class TodoApp extends React.Component {
                                    preview="true" />);
 
         return (
-            <div className="row TodoApp">
-                <div className="col-md-6 col-sm-8">
-                    <div className="page-header">
-                        <h1>Todo App</h1>
-                    </div>
-                    <div className="well well-lg">
-                        <ul className="list-group">
+            <div className='container-fluid TodoApp'>
+                <ReactTransitionGroup transitionName="fade">
+                    <div className="row">
+                        <div className="col-md-6 col-sm-8">
+                            <div className="page-header">
+                                <h1>Todo App</h1>
+                            </div>
+                            <div className="well well-lg">
+                                <ul className="list-group">
 
-                            {todos}
-                            {inputText}
-                        </ul>
+                                    {todos}
+                                    {inputText}
+                                </ul>
 
-                        <TodoForm toggleAll={this.toggleAll}
-                                  value={this.state.inputText}
-                                  onChange={this.updateText}
-                                  onAddTodo={this.addTodo}
-                                  allAreArchived={this.state.allAreArchived} />
-                        <ul className="nav nav-pills">
-                            <li role="presentation"
-                                className="active">
-                                <Link to="all">All</Link>
-                            </li>
-                            <li role="presentation">
-                                <Link to="archived">Archived</Link>
-                            </li>
-                            <li role="presentation">
-                                <Link to="active">Active</Link>
-                            </li>
-                        </ul>
+                                <TodoForm toggleAll={this.toggleAll}
+                                          value={this.state.inputText}
+                                          onChange={this.updateText}
+                                          onAddTodo={this.addTodo}
+                                          allAreArchived={this.state.allAreArchived} />
+                                <ul className="nav nav-pills">
+                                    <li role="presentation"
+                                        className="active">
+                                        <Link to="all">All</Link>
+                                    </li>
+                                    <li role="presentation">
+                                        <Link to="archived">Archived</Link>
+                                    </li>
+                                    <li role="presentation">
+                                        <Link to="active">Active</Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </ReactTransitionGroup>
             </div>
-
 
         );
     }
