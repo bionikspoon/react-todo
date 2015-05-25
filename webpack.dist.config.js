@@ -7,6 +7,7 @@
 'use strict';
 
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
 
@@ -38,28 +39,33 @@ module.exports = {
             '.js'
         ],
         alias: {
-            'styles': __dirname + '/src/styles',
-            'mixins': __dirname + '/src/mixins',
-            'components': __dirname + '/src/components/',
-            'stores': __dirname + '/src/stores/',
-            'actions': __dirname + '/src/actions/'
+            'actions': path.join(__dirname, 'src/actions/'),
+            'components': path.join(__dirname, 'src/components/'),
+            'constants': path.join(__dirname, 'src/constants/'),
+            'dispatcher': path.join(__dirname, 'src/dispatcher/'),
+            'images': path.join(__dirname, 'src/images/'),
+            'stores': path.join(__dirname, 'src/stores/'),
+            'styles': path.join(__dirname, 'src/styles'),
+            'mixins': path.join(__dirname, 'src/mixins')
         }
     },
 
     module: {
-        preLoaders: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'jsxhint'
-            }
-        ],
+        //preLoaders: [
+        //    {
+        //        test: /\.js$/,
+        //        exclude: /node_modules/,
+        //        loader: 'jsxhint'
+        //    }
+        //],
 
         loaders: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                loaders: [
+                    'babel-loader' + '?optional[]=runtime' + '&stage=0'
+                ]
             },
             {
                 test: /\.css$/,
@@ -70,7 +76,7 @@ module.exports = {
                 loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'
             },
             {
-                test: /\.(png|jpg|woff|woff2)$/,
+                test: /\.(png|jpg|woff|woff2|eot|ttf|svg)$/,
                 loader: 'url-loader?limit=8192'
             }
         ]

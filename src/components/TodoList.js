@@ -36,7 +36,8 @@ export default class TodoList extends React.Component {
             );
         });
 
-        let inputText = (<TodoItem value={this.props.inputText}
+        let inputText = (<TodoItem key='inputTodo'
+                                   value={this.props.inputText}
                                    preview="true" />);
 
         let ulClasses = classNames({
@@ -46,7 +47,6 @@ export default class TodoList extends React.Component {
         });
         return (
             <ul className={ulClasses}>
-
                 {todos}
                 {inputText}
             </ul>

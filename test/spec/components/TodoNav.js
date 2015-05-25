@@ -5,7 +5,7 @@ describe('TodoNav', function () {
   var TodoNav, component;
 
   beforeEach(function () {
-    TodoNav = require('components/TodoNav.js');
+    TodoNav = require('components/TodoNav');
     component = React.createElement(TodoNav);
   });
 

@@ -48,6 +48,7 @@ export default class TodoItem extends React.Component {
                 className={liClass}
                 onMouseOver={this.mouseOver}
                 onMouseLeave={this.mouseOut}>
+
                 {closeButton}
                 <label>
                     <input type="checkbox"
@@ -57,6 +58,7 @@ export default class TodoItem extends React.Component {
                     <span className={valueClass}>{this.props.value}</span>
                 </label>
             </li>
+
         );
     }
 

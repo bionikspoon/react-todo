@@ -23,7 +23,7 @@ describe('TodoApp', function () {
   var TodoApp, component;
 
   beforeEach(function () {
-    TodoApp = require('components/TodoApp.js');
+    TodoApp = require('components/TodoApp');
     component = React.createElement(TodoApp);
   });
 

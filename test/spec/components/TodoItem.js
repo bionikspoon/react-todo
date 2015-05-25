@@ -5,7 +5,7 @@ describe('TodoItem', function () {
   var TodoItem, component;
 
   beforeEach(function () {
-    TodoItem = require('components/TodoItem.js');
+    TodoItem = require('components/TodoItem');
     component = React.createElement(TodoItem);
   });
 

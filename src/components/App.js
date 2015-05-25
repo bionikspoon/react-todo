@@ -8,28 +8,17 @@ import 'styles/App.scss';
 
 import debug from 'constants/DebugConstants';
 debug('Loading %s...', 'App');
-const ReactTransitionGroup = React.addons.TransitionGroup;
+const TransitionGroup = React.addons.TransitionGroup;
 
 export default class App extends React.Component {
-    getFilter() {
-        switch (this.props.params.filter) {
-            case 'archived':
-                return 'archived';
-            case 'active':
-                return 'active';
-            default:
-                return 'all';
-        }
-
-    }
 
     render() {
+        debug(this.props.params);
+
         return (
             <div className='App'>
                 <div className='container-fluid '>
-                    <ReactTransitionGroup transitionName="fade">
-                        <RouteHandler filter={this.getFilter()} />
-                    </ReactTransitionGroup>
+                    <RouteHandler filter={this.props.params.filter} />
                 </div>
             </div>
         );

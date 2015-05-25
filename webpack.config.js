@@ -17,7 +17,7 @@ module.exports = {
 
     cache: true,
     debug: true,
-    devtool: "eval",
+    devtool: "eval-source-map",
     entry: [
         'webpack/hot/only-dev-server',
         './src/components/main.js'
@@ -58,8 +58,7 @@ module.exports = {
                 exclude: /node_modules/,
                 loaders: [
                     'react-hot',
-                    'babel-loader' + '?optional[]=runtime' +
-                    '&optional[]=es7.classProperties' + '&stage=0'
+                    'babel-loader' + '?optional[]=runtime' + '&stage=0'
                 ]
             },
             {

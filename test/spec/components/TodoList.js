@@ -5,7 +5,7 @@ describe('TodoList', function () {
   var TodoList, component;
 
   beforeEach(function () {
-    TodoList = require('components/TodoList.js');
+    TodoList = require('components/TodoList');
     component = React.createElement(TodoList);
   });
 
