@@ -1,0 +1,14 @@
+@import "variables";
+
+.TodoNav {
+    //border: 1px dashed #f00;
+
+    .remove-archived {
+        color: $brand-warning;
+    }
+
+    .remove-all {
+        color: $brand-danger;
+
+    }
+}
