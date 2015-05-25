@@ -115,6 +115,18 @@ AppDispatcher.register((payload) => {
             Store._todos.splice(action.index, 1);
             Store.emitChange();
             break;
+        case TodoConstants.REMOVE_ALL:
+            debug('Removing All Todos');
+            Store._todos.length = 0;
+            Store.emitChange();
+            break;
+        case TodoConstants.REMOVE_ARCHIVED:
+            debug('Removing Archived Todos');
+            Store._todos = Store._todos.filter((todo) => {
+                return todo.archived === false;
+            });
+            Store.emitChange();
+            break;
         default:
             break;
     }

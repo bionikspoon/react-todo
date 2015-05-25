@@ -1,25 +1,18 @@
 @import "variables";
-@import "bootstrap";
 
 .TodoApp {
+    //border: 1px dashed #f00;
 
     .input-group {
         margin-bottom: 20px;
     }
-    .fade-enter {
-        opacity: 0.01;
-        transition: opacity .5s ease-in;
-        &.fade-enter-active {
-            opacity: 1;
-        }
+
+    .remove-archived {
+        color: $brand-warning;
     }
 
-    .fade-leave {
-        opacity: 1;
-        transition: opacity .5s ease-in;
-        &.fade-leave-active {
-            opacity: 0.01;
-        }
+    .remove-all {
+        color: $brand-danger;
 
     }
 

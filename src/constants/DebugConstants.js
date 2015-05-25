@@ -1,4 +1,4 @@
-const debug = require('debug')('WineStoreApp');
+const debug = require('debug')('TodoApp');
 
 if (window.debug !== debug) {
     window.debug = debug;

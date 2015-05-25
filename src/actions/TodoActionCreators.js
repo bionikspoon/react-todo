@@ -43,6 +43,16 @@ export default  {
             type: TodoConstants.REMOVE_TODO,
             index
         });
+    },
+    removeAll: () => {
+        AppDispatcher.handleAction({
+            type: TodoConstants.REMOVE_ALL
+        })
+    },
+    removeArchived: () => {
+        AppDispatcher.handleAction({
+            type: TodoConstants.REMOVE_ARCHIVED
+        })
     }
 
 

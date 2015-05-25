@@ -29,7 +29,7 @@ export default class TodoForm extends React.Component {
             'text-muted': this.props.allAreArchived
         });
         return (
-            <div className="input-group">
+            <div className="input-group TodoForm">
                             <span className="input-group-btn">
                             <button className="btn btn-default"
                                     type="button"

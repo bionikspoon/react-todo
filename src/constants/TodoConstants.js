@@ -8,5 +8,7 @@ export default keyMirror({
     TOGGLE_ARCHIVE: null,
     TOGGLE_ALL: null,
     UPDATE_TEXT: null,
-    REMOVE_TODO: null
+    REMOVE_TODO: null,
+    REMOVE_ALL: null,
+    REMOVE_ARCHIVED: null
 });
