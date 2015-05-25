@@ -31,24 +31,7 @@ class TodoApp extends React.Component {
 
 
     updateText(event) {
-        debug('updateText', event);
         Actions.updateText(event.target.value);
-    }
-
-    addTodo() {
-        Actions.addTodo();
-    }
-
-    removeTodo(index) {
-        Actions.removeTodo(index);
-    }
-
-    toggleArchive(todo, index) {
-        Actions.toggleArchive(todo, index);
-    }
-
-    toggleAll() {
-        Actions.toggleAll();
     }
 
     removeAll(event) {
@@ -78,8 +61,8 @@ class TodoApp extends React.Component {
 
         debug("TodoApp State: ", this.state.todos, this.state.inputText);
         let todos = this.filteredTodos().map((todo, index)=> {
-            let toggleArchive = this.toggleArchive.bind(this, todo, index);
-            let removeTodo = this.removeTodo.bind(this, index);
+            let toggleArchive = Actions.toggleArchive.bind(this, todo, index);
+            let removeTodo = Actions.removeTodo.bind(this, index);
 
             return (
                 <TodoItem key={todo._id}
@@ -107,10 +90,10 @@ class TodoApp extends React.Component {
                             {inputText}
                         </ul>
 
-                        <TodoForm toggleAll={this.toggleAll}
+                        <TodoForm toggleAll={Actions.toggleAll}
                                   value={this.state.inputText}
                                   onChange={this.updateText}
-                                  onAddTodo={this.addTodo}
+                                  onAddTodo={Actions.addTodo}
                                   allAreArchived={this.state.allAreArchived} />
                         <ul className="nav nav-pills">
                             <li role="presentation"
