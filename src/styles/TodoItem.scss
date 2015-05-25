@@ -2,7 +2,6 @@
 
 .TodoItem {
     //border: 1px dashed #f00;
-
     &.list-group-item:first-child {
         margin-top: -1px;
     }
@@ -10,10 +9,8 @@
         color: $list-group-link-hover-color;
         background-color: $list-group-hover-bg;
     }
-
     span.todo-archived {
         color: $text-muted;
         text-decoration: line-through;
     }
-
 }
