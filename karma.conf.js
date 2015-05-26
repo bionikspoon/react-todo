@@ -1,5 +1,4 @@
 'use strict';
-
 var webpack = require('webpack');
 var path = require('path');
 
@@ -20,29 +19,19 @@ module.exports = function (config) {
         },
         webpack: {
             output: {
-                filename: 'main.js',
-                publicPath: '/assets/'
+                filename: 'main.js', publicPath: '/assets/'
             },
 
-            cache: true,
-            debug: true,
-            devtool: "eval-source-map",
-            //entry: [
-            //    'webpack/hot/only-dev-server',
-            //    './src/components/main.js'
-            //],
+            cache: true, debug: true, devtool: "eval",
 
             stats: {
-                colors: true,
-                reasons: true
+                colors: true, reasons: true
             },
 
             resolve: {
                 extensions: [
-                    '',
-                    '.js'
-                ],
-                alias: {
+                    '', '.js'
+                ], alias: {
                     'actions': path.join(__dirname, 'src/actions/'),
                     'components': path.join(__dirname, 'src/components/'),
                     'constants': path.join(__dirname, 'src/constants/'),
@@ -52,21 +41,12 @@ module.exports = function (config) {
                     'styles': path.join(__dirname, 'src/styles'),
                     'mixins': path.join(__dirname, 'src/mixins')
                 }
-            },
-            module: {
-                //preLoaders: [
-                //    {
-                //        test: /\.js$/,
-                //        exclude: /node_modules/,
-                //        loader: 'jsxhint?babel-experimental'
-                //    }
-                //],
+            }, module: {
                 loaders: [
                     {
                         test: /\.js$/,
                         exclude: /node_modules/,
                         loaders: [
-                            'react-hot',
                             'babel-loader' + '?optional[]=runtime' + '&stage=0'
                         ]
                     },
@@ -89,16 +69,13 @@ module.exports = function (config) {
                 ]
             },
 
-            plugins: [
-                new webpack.HotModuleReplacementPlugin(),
-                new webpack.NoErrorsPlugin()
-            ]
+            plugins: []
         },
 
         webpackServer: {
             stats: {
                 colors: true
-            }
+            }, noInfo: true
         }, //plugins: [
         //    require("karma-webpack")
         //],
@@ -115,7 +92,7 @@ module.exports = function (config) {
         // - PhantomJS
         // - IE (only Windows)
         browsers: ['PhantomJS'],
-        reporters: ['progress'],
+        reporters: ['dots'],
         captureTimeout: 60000,
         singleRun: false
     });

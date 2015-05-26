@@ -1,15 +1,19 @@
 'use strict';
+import debug from 'constants/DebugConstants';
+debug('Loading %s...', 'TodoList');
+var React = require('react/addons');
+var TestUtils = React.addons.TestUtils;
 
 describe('TodoList', function () {
-  var React = require('react/addons');
-  var TodoList, component;
 
-  beforeEach(function () {
-    TodoList = require('components/TodoList');
-    component = React.createElement(TodoList);
-  });
+    var TodoList, component;
 
-  it('should create a new instance of TodoList', function () {
-    expect(component).toBeDefined();
-  });
+    beforeEach(() => {
+        TodoList = require('components/TodoList');
+        component = TestUtils.renderIntoDocument(<TodoList />)
+    });
+
+    it('should create a new instance of TodoList', () => {
+        expect(component).toBeDefined();
+    });
 });

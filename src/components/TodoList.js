@@ -11,6 +11,10 @@ debug('Loading %s...', 'TodoList');
 
 
 export default class TodoList extends React.Component {
+    static defaultProps = {
+        filter: 'all',
+        todos: []
+    };
     filteredTodos = () => {
         let returnAll = this.props.filter === 'all';
         let archiveFilter = this.props.filter === 'archived';
@@ -31,7 +35,7 @@ export default class TodoList extends React.Component {
                 <TodoItem key={todo._id}
                           value={todo.text}
                           archived={todo.archived}
-                          toggleArchive={this.props.toggleArchive.bind(this, todo, index)}
+                          toggleArchive={this.props.toggleArchive.bind(this, index)}
                           removeTodo={this.props.removeTodo.bind(index)} />
             );
         });

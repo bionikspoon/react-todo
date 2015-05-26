@@ -2,18 +2,19 @@
 import AppDispatcher from 'dispatcher/AppDispatcher';
 import TodoConstants from 'constants/TodoConstants';
 
-
 import debug from 'constants/DebugConstants';
 debug('Loading %s...', 'TodoActionCreators');
 
 export default  {
-    fetch: () => {
-        //HelloSlave.fetch().then((data) => {
-        //    AppDispatcher.handleAction({
-        //        type: HelloConstants.FETCHING,
-        //        data: data
-        //    });
-        //})
+    populateData: () => {
+        let request = require('bundle-loader!json-loader!../todos.json');
+        request((data) => {
+            AppDispatcher.handleAction({
+                type: TodoConstants.POPULATE_DATA,
+                data
+            });
+        });
+
     },
     updateText: (text) => {
         AppDispatcher.handleAction({
@@ -26,10 +27,9 @@ export default  {
             type: TodoConstants.ADD_TODO
         });
     },
-    toggleArchive: (todo, index)=> {
+    toggleArchive: (index)=> {
         AppDispatcher.handleAction({
             type: TodoConstants.TOGGLE_ARCHIVE,
-            todo,
             index
         });
     },

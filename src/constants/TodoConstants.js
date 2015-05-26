@@ -10,5 +10,6 @@ export default keyMirror({
     UPDATE_TEXT: null,
     REMOVE_TODO: null,
     REMOVE_ALL: null,
-    REMOVE_ARCHIVED: null
+    REMOVE_ARCHIVED: null,
+    POPULATE_DATA: null
 });

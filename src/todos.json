@@ -1,0 +1,17 @@
+[
+    {
+        "_id":      1,
+        "text":     "First todo",
+        "archived": false
+    },
+    {
+        "_id":      2,
+        "text":     "2nd todo",
+        "archived": false
+    },
+    {
+        "_id":      3,
+        "text":     "third todo",
+        "archived": false
+    }
+]

@@ -9,26 +9,7 @@ debug('Loading %s...', 'TodoStore');
 const CHANGE_EVENT = 'CHANGE_EVENT';
 
 class TodoStore extends EventEmitter {
-    _todos = [
-        {
-            _id: 1,
-            text: 'First todo',
-            archived: false
-
-        },
-        {
-            _id: 2,
-            text: '2nd todo',
-            archived: false
-
-        },
-        {
-            _id: 3,
-            text: 'third todo',
-            archived: false
-
-        }
-    ];
+    _todos = [];
     _inputText;
 
     getState() {
@@ -51,9 +32,7 @@ class TodoStore extends EventEmitter {
 
     addTodo() {
         let todo = {
-            _id: Date.now(),
-            text: this._inputText,
-            archived: false
+            _id: Date.now(), text: this._inputText, archived: false
         };
 
         this._todos.push(todo);
@@ -81,7 +60,6 @@ class TodoStore extends EventEmitter {
         this.removeListener(CHANGE_EVENT, callback);
     }
 
-
 }
 const Store = new TodoStore();
 
@@ -101,8 +79,7 @@ AppDispatcher.register((payload) => {
             break;
         case TodoConstants.TOGGLE_ARCHIVE:
             debug('Toggling Archive Status: ', action.todo, action.index);
-            Store._todos[action.index].archived =
-                !Store._todos[action.index].archived;
+            Store._todos[action.index].archived = !Store._todos[action.index].archived;
             Store.emitChange();
             break;
         case TodoConstants.TOGGLE_ALL:
@@ -127,11 +104,15 @@ AppDispatcher.register((payload) => {
             });
             Store.emitChange();
             break;
+        case TodoConstants.POPULATE_DATA:
+            debug('Populating data: ', action.data);
+            Store._todos = action.data;
+            Store.emitChange();
+            break;
         default:
             break;
     }
 
 });
-
 
 export default Store;
