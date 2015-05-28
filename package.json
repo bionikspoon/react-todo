@@ -1,6 +1,6 @@
 {
   "name": "react-todo",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A react todo mvc exercise.",
   "repository": "git@github.com:bionikspoon/react-todo.git",
   "private": true,
