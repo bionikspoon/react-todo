@@ -1,0 +1,23 @@
+@import "variables";
+@import "bootstrap";
+
+.App {
+    //border: 1px dashed #f00;
+
+    .fade-enter {
+        opacity: 0.01;
+        transition: opacity 2s ease-in;
+        &.fade-enter-active {
+            opacity: 1;
+        }
+    }
+
+    .fade-leave {
+        opacity: 1;
+        transition: opacity 2s ease-in;
+        &.fade-leave-active {
+            opacity: 0.01;
+        }
+
+    }
+}
